@@ -1,0 +1,3 @@
+# Protect other data from deploying into Vercel/Now cloud
+# Deploy only app directory
+/*

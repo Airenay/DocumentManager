@@ -1,0 +1,1 @@
+https://faucet.rinkeby.io/

@@ -1,0 +1,32 @@
+:root {
+  font-size: 14px;
+}
+
+body {
+  font-size: 0.875rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+a.valid {
+  color: blue;
+}
+
+a.invalid {
+  color: red;
+}
+
+.truncate {
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

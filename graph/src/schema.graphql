@@ -1,0 +1,114 @@
+#
+# DocumentManager GraphQL schema
+# (c) 2020 by Irina Semyonova
+#
+# This work is licensed under a
+# Creative Commons Attribution-ShareAlike 4.0 International License
+# (CC-BY-SA 4.0)
+#
+# You should have received a copy of the license along with this
+# work. If not, see <http://creativecommons.org/licenses/by-sa/4.0/>.
+#
+
+"Document object representing its current state and history"
+type Document @entity {
+  # Unique ID string, e.g. "series:number"
+  "Unique identifier and primary key of the entity"
+  id: ID!
+
+  # These properties are stored in the blockchain
+  "Date when the document was initially created"
+  dateCreated: Int!
+  "Date when the document was last updated"
+  dateUpdated: Int
+  "True if the document was revoked"
+  isRevoked: Boolean
+  "True if the document data was removed"
+  isRemoved: Boolean
+  "Document data as a UTF-8 JSON string"
+  data: String
+  "Detached signature"
+  signature: Bytes
+
+  "Related object with properties decoded from JSON data"
+  documentObject: DocumentObject
+
+  # The document history records
+  "Document history event identifiers"
+  history: [HistoryRecord!]! @derivedFrom(field: "docId")
+}
+
+
+"Object representing Document data parsed from JSON string"
+type DocumentObject @entity {
+  # Unique ID string directly related to Document id
+  "Unique identifier and primary key of the entity"
+  id: ID!
+
+  "Related original Document"
+  document: Document
+
+  # These properties are decoded from data string
+  institution: String
+  degree: String
+  honours: Boolean
+  series: String
+  number: String
+  issue_number: String
+  issue_date: String
+  first_name: String
+  middle_name: String
+  last_name: String
+  specialty: String
+  qualification: String
+  protocol_number: String
+  protocol_date: String
+  chairman: String
+  head: String
+
+  # These properties are copied from related document for convenient search
+  "Date when the document was initially created"
+  dateCreated: Int
+  "Date when the document was last updated"
+  dateUpdated: Int
+  "True if the document was revoked"
+  isRevoked: Boolean
+  "True if the document data was removed"
+  isRemoved: Boolean
+  "Document data as a UTF-8 JSON string"
+  data: String
+  "Detached signature"
+  signature: Bytes
+}
+
+
+"Type representing expected event types"
+enum EventType {
+  "Document created"
+  Create
+  "Document data updated"
+  Update
+  "Document revoked (not valid anymore)"
+  Revoke
+  "Document removed (no data available)"
+  Remove
+}
+
+
+"Document history record"
+type HistoryRecord @entity {
+  "Unique identifier and primary key of the history record"
+  id: ID!
+  "Related document identifier"
+  docId: Document!
+  "Event date"
+  date: Int!
+  "Event type"
+  type: EventType!
+  "Optional last change reason as a UTF-8 string"
+  reason: String
+  "Document data as a UTF-8 JSON string"
+  data: String
+  "Detached signature"
+  signature: Bytes
+}

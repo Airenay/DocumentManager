@@ -1,0 +1,29 @@
+{
+  "name": "graph",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "graph:codegen": "graph codegen",
+    "graph:build": "graph build",
+    "graph:create": "graph create dm --node http://127.0.0.1:8020",
+    "graph:deploy": "graph deploy dm --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
+    "graph:remove": "graph remove dm --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
+    "graph:create-hosted": "graph create airenay/dm --node https://api.thegraph.com/deploy/",
+    "graph:deploy-hosted": "graph deploy airenay/dm --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "clean": "rm -rf ./build/ ./generated/",
+    "clean:chain": "rm -rf ./run/",
+    "clean:all": "rm -rf ./build/ ./generated/ ./run/",
+    "graph": "docker-compose up"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.18.0",
+    "@graphprotocol/graph-ts": "^0.18.0"
+  },
+  "workspaces": {
+    "nohoist": [
+      "@graphprotocol/graph-cli",
+      "@graphprotocol/graph-ts"
+    ]
+  }
+}

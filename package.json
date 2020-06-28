@@ -1,0 +1,47 @@
+{
+  "name": "dm",
+  "version": "0.0.0",
+  "description": "Digital Diploma Management System",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "sol:format": "yarn -s --cwd contracts run sol:format",
+    "sol:lint": "yarn -s --cwd contracts run sol:lint",
+    "oz:compile": "yarn -s --cwd contracts run oz:compile",
+    "oz:deploy": "yarn -s --cwd contracts run oz:deploy",
+    "oz:send-tx": "yarn -s --cwd contracts run oz:send-tx",
+    "oz:call": "yarn -s --cwd contracts run oz:call",
+    "oz:upgrade": "yarn -s --cwd contracts run oz:upgrade",
+    "oz:session": "yarn -s --cwd contracts run oz:session",
+    "oz:accounts": "yarn -s --cwd contracts run oz:accounts",
+    "oz:balance": "yarn -s --cwd contracts run oz:balance",
+    "chain": "yarn -s --cwd contracts run chain",
+
+    "graph:codegen": "yarn -s --cwd graph run graph:codegen",
+    "graph:build": "yarn -s --cwd graph run graph:build",
+    "graph:create": "yarn -s --cwd graph run graph:create",
+    "graph:deploy": "yarn -s --cwd graph run graph:deploy",
+    "graph:remove": "yarn -s --cwd graph run graph:remove",
+    "graph:create-hosted": "yarn -s --cwd graph run graph:create-hosted",
+    "graph:deploy-hosted": "yarn -s --cwd graph run graph:deploy-hosted",
+    "graph": "yarn -s --cwd graph run graph",
+
+    "dev": "yarn -s --cwd app run dev",
+    "build": "yarn -s --cwd app run build",
+    "start": "yarn -s --cwd app run start",
+    "now": "yarn -s --cwd app run now",
+
+    "initchain": "scripts/initchain.sh",
+    "test":      "yarn -s --cwd contracts run test",
+
+    "clean": "for dir in contracts graph app; do yarn --cwd $dir run clean; done",
+    "clean:chain": "for dir in contracts graph; do yarn --cwd $dir run clean:chain; done",
+    "clean:all": "for dir in contracts graph app; do yarn --cwd $dir run clean:all; done",
+    "clean:modules": "for dir in . contracts graph app; do rm -rf $dir/node_modules; done"
+  },
+  "workspaces": [
+    "contracts",
+    "graph",
+    "app"
+  ]
+}

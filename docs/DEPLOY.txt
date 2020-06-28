@@ -1,0 +1,21 @@
+Развертывание в реальном блокчейне
+----------------------------------
+
+1. Смарт-контракт (https://docs.openzeppelin.com/learn/connecting-to-public-test-networks)
+- Зарегистрировать проект на infura.io
+- Вписать projectId в contracts/secrets.json
+- Обновить contracts/networks.js (добавить rinkeby)
+- oz accounts
+- Переключить MetaMask на rinkeby и закинуть денег на адрес
+- oz balance
+- oz compile
+- oz deploy
+
+2. Graph
+- subgraph.yaml: network, address, startBlock
+- graph codegen
+- graph build
+- graph auth ...
+- graph deploy ...
+
+3. Now

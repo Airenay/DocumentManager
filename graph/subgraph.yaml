@@ -1,0 +1,47 @@
+#
+# (c) 2020 by Irina Semyonova
+#
+# This work is licensed under a
+# Creative Commons Attribution-ShareAlike 4.0 International License
+# (CC-BY-SA 4.0)
+#
+# You should have received a copy of the license along with this
+# work. If not, see <http://creativecommons.org/licenses/by-sa/4.0/>.
+#
+
+specVersion: 0.0.2
+description: Digital Diploma Management System
+repository:
+schema:
+  file: ./src/schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: DocumentManager
+    #network: rinkeby
+    network: development
+    source:
+      abi: DocumentManager
+      #address: '0x92387F0f0cb0F9a1FA08Ca77095315F4bdA8a3A1' # upgradeable contract (rinkeby 0.0.1)
+      #startBlock: 6322608
+      address: '0x7b6462294575Eaf3D3AfA3FbE0303e02fc506f3a'  # automatically modified, DO NOT COMMIT this change
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - DocumentManager
+        - Document
+        - DocumentObject
+      abis:
+        - name: DocumentManager
+          file: ../contracts/build/contracts/abis/DocumentManager.json
+      eventHandlers:
+        - event: Created(string)
+          handler: handleCreated
+        - event: Updated(string,string)
+          handler: handleUpdated
+        - event: Revoked(string,string)
+          handler: handleRevoked
+        - event: Removed(string,string)
+          handler: handleRemoved
+      file: ./src/mapping.ts

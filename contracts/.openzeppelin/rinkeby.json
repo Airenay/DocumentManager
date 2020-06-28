@@ -1,0 +1,141 @@
+{
+  "contracts": {
+    "DocumentManager": {
+      "address": "0x8Cad5C9485F7c7dD9fCA1F9D640869658Ac0Eb59",
+      "constructorCode": "608060405234801561001057600080fd5b50610e3a806100206000396000f3fe",
+      "bodyBytecodeHash": "07bf0a2446594c89ff9fa9dabc89da08191816d474201caad0f11fadadbc0248",
+      "localBytecodeHash": "8c96ed5be6c2de90a8a834cdbe4b0589712eec1ce8563b6d94b860a101757064",
+      "deployedBytecodeHash": "8c96ed5be6c2de90a8a834cdbe4b0589712eec1ce8563b6d94b860a101757064",
+      "types": {
+        "t_bool": {
+          "id": "t_bool",
+          "kind": "elementary",
+          "label": "bool"
+        },
+        "t_uint256": {
+          "id": "t_uint256",
+          "kind": "elementary",
+          "label": "uint256"
+        },
+        "t_array:50<t_uint256>": {
+          "id": "t_array:50<t_uint256>",
+          "valueType": "t_uint256",
+          "length": "50",
+          "kind": "array",
+          "label": "uint256[50]"
+        },
+        "t_struct<DocumentManager.Document>": {
+          "id": "t_struct<DocumentManager.Document>",
+          "kind": "struct",
+          "label": "DocumentManager.Document",
+          "members": [
+            {
+              "label": "date",
+              "astId": 80,
+              "type": "t_uint256",
+              "src": "249:12:1"
+            },
+            {
+              "label": "revoked",
+              "astId": 82,
+              "type": "t_bool",
+              "src": "323:12:1"
+            },
+            {
+              "label": "removed",
+              "astId": 84,
+              "type": "t_bool",
+              "src": "381:12:1"
+            },
+            {
+              "label": "data",
+              "astId": 86,
+              "type": "t_string",
+              "src": "448:11:1"
+            },
+            {
+              "label": "signature",
+              "astId": 88,
+              "type": "t_bytes",
+              "src": "507:15:1"
+            }
+          ]
+        },
+        "t_string": {
+          "id": "t_string",
+          "kind": "elementary",
+          "label": "string"
+        },
+        "t_bytes": {
+          "id": "t_bytes",
+          "kind": "elementary",
+          "label": "bytes"
+        },
+        "t_mapping<t_struct<DocumentManager.Document>>": {
+          "id": "t_mapping<t_struct<DocumentManager.Document>>",
+          "valueType": "t_struct<DocumentManager.Document>",
+          "label": "mapping(key => DocumentManager.Document)",
+          "kind": "mapping"
+        }
+      },
+      "storage": [
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initialized",
+          "astId": 4,
+          "type": "t_bool",
+          "src": "757:24:0"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initializing",
+          "astId": 6,
+          "type": "t_bool",
+          "src": "876:25:0"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "______gap",
+          "astId": 71,
+          "type": "t_array:50<t_uint256>",
+          "src": "1982:29:0"
+        },
+        {
+          "contract": "DocumentManager",
+          "path": "contracts/DocumentManager.sol",
+          "label": "documents",
+          "astId": 96,
+          "type": "t_mapping<t_struct<DocumentManager.Document>>",
+          "src": "681:45:1"
+        }
+      ],
+      "warnings": {
+        "hasConstructor": false,
+        "hasSelfDestruct": false,
+        "hasDelegateCall": false,
+        "hasInitialValuesInDeclarations": false,
+        "uninitializedBaseContracts": []
+      }
+    }
+  },
+  "solidityLibs": {},
+  "proxies": {
+    "dm/DocumentManager": [
+      {
+        "address": "0x92387F0f0cb0F9a1FA08Ca77095315F4bdA8a3A1",
+        "version": "0.0.1",
+        "implementation": "0x8Cad5C9485F7c7dD9fCA1F9D640869658Ac0Eb59",
+        "admin": "0x771294cd4AA3aFc7d54E60D593EBAD6e7b7a9fc4",
+        "kind": "Upgradeable"
+      }
+    ]
+  },
+  "manifestVersion": "2.2",
+  "version": "0.0.1",
+  "proxyAdmin": {
+    "address": "0x771294cd4AA3aFc7d54E60D593EBAD6e7b7a9fc4"
+  }
+}

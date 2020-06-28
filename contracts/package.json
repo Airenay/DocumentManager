@@ -1,0 +1,36 @@
+{
+  "name": "contracts",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "sol:format": "prettier --write contracts/**/*.sol",
+    "sol:lint": "solhint contracts/**/*.sol",
+    "oz:compile": "oz compile && scripts/extract-abis.sh",
+    "oz:deploy": "oz deploy",
+    "oz:send-tx": "oz send-tx",
+    "oz:call": "oz call",
+    "oz:upgrade": "oz upgrade",
+    "oz:session": "oz session",
+    "oz:accounts": "oz accounts",
+    "oz:balance": "oz balance",
+    "chain": "docker-compose up",
+    "clean": "rm -rf ./build/",
+    "clean:chain": "rm -rf ./run/ ./.openzeppelin/{dev-*.json,.session}",
+    "clean:all": "rm -rf ./build/ ./run/ ./.openzeppelin/{dev-*.json,.session}",
+    "test": "mocha --exit --slow 1000 --recursive test"
+  },
+  "devDependencies": {
+    "@openzeppelin/cli": "^2.8.0",
+    "@openzeppelin/contracts-ethereum-package": "^3.0.0",
+    "@openzeppelin/test-environment": "^0.1.4",
+    "@openzeppelin/test-helpers": "^0.5.6",
+    "@truffle/hdwallet-provider": "^1.0.34",
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "prettier": "^1.13.5",
+    "prettier-plugin-solidity": "^1.0.0-alpha.47",
+    "solhint": "^2.3.1",
+    "solhint-plugin-prettier": "0.0.4"
+  }
+}
